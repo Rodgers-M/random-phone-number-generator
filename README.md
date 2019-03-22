@@ -1,4 +1,12 @@
-i **Technologies used to build the application**
+ [![CircleCI](https://circleci.com/gh/Rodgers-M/random-phone-number-generator.svg?style=svg)](https://circleci.com/gh/Rodgers-M/random-phone-number-generator)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/922786071282e32e7052/test_coverage)](https://codeclimate.com/github/Rodgers-M/random-phone-number-generator/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/922786071282e32e7052/maintainability)](https://codeclimate.com/github/Rodgers-M/random-phone-number-generator/maintainability)
+
+
+A web application that generates random phone numbers, lits them on a page and
+also enables the users to download them in a csv file
+
+ **Technologies used to build the application**
 
  * [Reactjs](https://reactjs.org/docs/hello-world.html) [Here](https://reactjs.org/tutorial/tutorial.html) is a good place to get started with react
 
