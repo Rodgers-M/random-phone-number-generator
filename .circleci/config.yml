@@ -2,6 +2,8 @@ version: 2
 jobs:
   build:
     working_directory: ~/workspace
+    environment:
+      CC_TEST_REPORTER_ID: 7b23bf65eca43435cb27bc7d477635ce1ea30f6dc44b9f3ea962b2ab116a4c00
     docker: 
       - image: node:11.10.0
     steps:
