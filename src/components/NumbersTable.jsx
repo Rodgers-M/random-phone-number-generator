@@ -1,0 +1,38 @@
+import React from 'react';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import { randomPhoneInitial }  from '../helpers/randomNumbersGenerator'
+import "./numbers-table.css"
+
+const NumbersTable = (props) => {
+  const { phoneNumbers } = props
+
+  return (
+    <Paper className=''>
+      <Table className='teboo'>
+        <TableHead>
+          <TableRow>
+            <TableCell>Index</TableCell>
+            <TableCell align="right">Phone Number</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {phoneNumbers.map((phoneNumber, index) => (
+            <TableRow key={index}>
+              <TableCell component="th" scope="row">
+                {index + 1}
+              </TableCell>
+              <TableCell align="right">{`07${randomPhoneInitial(2,5)}${phoneNumber}`}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Paper>
+  );
+}
+
+export default NumbersTable;
