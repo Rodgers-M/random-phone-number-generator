@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+import { randomPhoneNumbers, randomPhoneInitial} from './helpers/randomNumbersGenerator'
 import './App.css';
 import NavBar from './components/NavBar'
 import NumbersTable from './components/NumbersTable'
-import { randomPhoneNumbers} from './helpers/randomNumbersGenerator'
+import SubNav from './components/SubNav'
 
 class App extends Component {
   constructor (args) {
@@ -11,7 +13,7 @@ class App extends Component {
       phoneNumbers: [],
       minNum: 0,
       maxNUm: 0,
-      sortOrder: 'ascending'
+      sortOrder: 'desc'
     }
   }
 
@@ -28,13 +30,29 @@ class App extends Component {
    })
  }
 
+ sortNumbers = ()  => {
+  const {phoneNumbers, sortOrder} = this.state;
+    this.setState({
+      phoneNumbers:sortOrder === 'ascending' ? phoneNumbers.reverse() : _.sortBy(phoneNumbers) ,
+      sortOrder: sortOrder === 'asc' ? 'desc' : 'asc',
+    })
+  }
+
 
   render() {
-    console.log('state', this.state.minNum)
+    const { phoneNumbers } = this.state
+    const data = phoneNumbers.map(phoneNumber =>({number:`07${randomPhoneInitial(2,5)}${phoneNumber}`}))
+
     return (
       <div>
-        <NavBar generateNumbers={this.generateNumbers}></NavBar>
-        <NumbersTable phoneNumbers={this.state.phoneNumbers}></NumbersTable>
+        <NavBar generateNumbers={this.generateNumbers} data={data}></NavBar>
+        <SubNav></SubNav>
+        <NumbersTable 
+          phoneNumbers={this.state.phoneNumbers}
+          sortOrder={this.state.sortOrder}
+          sortNumbers={this.sortNumbers}
+        >
+        </NumbersTable>
       </div>
     );
   }

@@ -5,9 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
+import { CSVLink } from "react-csv";
 import "./nav.css"
 const NavBar = (props) => {
-    const { generateNumbers } = props
+    const { generateNumbers, data } = props
     return (
       <div className='nav-bar'>
        <AppBar position="static">
@@ -21,7 +22,11 @@ const NavBar = (props) => {
             </Typography>
 
           </div>
-            
+          <CSVLink data={data}>
+            <Button variant="contained" color="secondary" className='btn-generate'>
+              Download Numbers
+            </Button>
+          </CSVLink>
               <Button onClick={generateNumbers}variant="contained" color="secondary" className='btn-generate'>
                 Generate Numbers
               </Button>

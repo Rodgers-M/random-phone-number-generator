@@ -4,12 +4,14 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import TableSortLabel from '@material-ui/core/TableSortLabel'
+import Tooltip from '@material-ui/core/Tooltip';
 import Paper from '@material-ui/core/Paper';
 import { randomPhoneInitial }  from '../helpers/randomNumbersGenerator'
 import "./numbers-table.css"
 
 const NumbersTable = (props) => {
-  const { phoneNumbers } = props
+  const { phoneNumbers, sortNumbers, sortOrder } = props
 
   return (
     <Paper className=''>
@@ -17,7 +19,19 @@ const NumbersTable = (props) => {
         <TableHead>
           <TableRow>
             <TableCell>Index</TableCell>
-            <TableCell align="right">Phone Number</TableCell>
+            <TableCell align="right">
+              <Tooltip
+                title='sort numbers'
+              >
+              <TableSortLabel
+               active='true'
+               direction={sortOrder}
+               onClick={sortNumbers}
+             >
+             </TableSortLabel>
+            </Tooltip>
+              Phone Number
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
