@@ -11,7 +11,7 @@ import { randomPhoneInitial }  from '../helpers/randomNumbersGenerator'
 import "./numbers-table.css"
 
 const NumbersTable = (props) => {
-  const { phoneNumbers, sortNumbers, sortOrder } = props
+  const { phoneNumbers, sortNumbers, sortOrder, sortArrowActive } = props
 
   return (
     <Paper className=''>
@@ -24,7 +24,7 @@ const NumbersTable = (props) => {
                 title='sort numbers'
               >
               <TableSortLabel
-               active='true'
+               active={sortArrowActive}
                direction={sortOrder}
                onClick={sortNumbers}
              >

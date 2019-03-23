@@ -11,9 +11,8 @@ class App extends Component {
     super(args)
     this.state = {
       phoneNumbers: [],
-      minNum: 0,
-      maxNUm: 0,
-      sortOrder: 'desc'
+      sortOrder: 'desc',
+      sortArrowActive: true 
     }
   }
 
@@ -40,17 +39,20 @@ class App extends Component {
 
 
   render() {
-    const { phoneNumbers } = this.state
+    const { phoneNumbers, sortOrder, sortArrowActive } = this.state
     const data = phoneNumbers.map(phoneNumber =>({number:`07${randomPhoneInitial(2,5)}${phoneNumber}`}))
+    const max = `07${_.max(phoneNumbers)}${randomPhoneInitial(2,5)}`
+    const min =  `07${_.min(phoneNumbers)}${randomPhoneInitial(2,5)}`
 
     return (
       <div>
         <NavBar generateNumbers={this.generateNumbers} data={data}></NavBar>
-        <SubNav></SubNav>
+        <SubNav max={max} min={min}></SubNav>
         <NumbersTable 
-          phoneNumbers={this.state.phoneNumbers}
-          sortOrder={this.state.sortOrder}
+          phoneNumbers={phoneNumbers}
+          sortOrder={sortOrder}
           sortNumbers={this.sortNumbers}
+          sortArrowActive={sortArrowActive}
         >
         </NumbersTable>
       </div>
