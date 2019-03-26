@@ -18,7 +18,9 @@ class App extends Component {
 
   componentDidMount() {
       randomPhoneNumbers(phoneNumbers=>{
-      this.setState({phoneNumbers})
+      this.setState({
+        phoneNumbers: _.sortBy(phoneNumbers) ,
+    })
     })
 
   }
