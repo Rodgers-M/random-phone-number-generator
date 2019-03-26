@@ -40,7 +40,7 @@ const NumbersTable = (props) => {
               <TableCell component="th" scope="row">
                 {index + 1}
               </TableCell>
-              <TableCell align="right">{`07${randomPhoneInitial(2,5)}${phoneNumber}`}</TableCell>
+              <TableCell align="right">{`07${phoneNumber}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>

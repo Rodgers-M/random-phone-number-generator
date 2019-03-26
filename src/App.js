@@ -40,9 +40,9 @@ class App extends Component {
 
   render() {
     const { phoneNumbers, sortOrder, sortArrowActive } = this.state
-    const data = phoneNumbers.map(phoneNumber =>({number:`07${randomPhoneInitial(2,5)}${phoneNumber}`}))
-    const max = `07${_.max(phoneNumbers)}${randomPhoneInitial(2,5)}`
-    const min =  `07${_.min(phoneNumbers)}${randomPhoneInitial(2,5)}`
+    const data = phoneNumbers.map(phoneNumber =>({number:`07$${phoneNumber}`}))
+    const max = `07${_.max(phoneNumbers)}`
+    const min =  `07${_.min(phoneNumbers)}`
 
     return (
       <div>
