@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { randomPhoneNumbers, randomPhoneInitial} from './helpers/randomNumbersGenerator'
+import { randomPhoneNumbers } from './helpers/randomNumbersGenerator'
 import './App.css';
 import NavBar from './components/NavBar'
 import NumbersTable from './components/NumbersTable'
@@ -11,7 +11,7 @@ class App extends Component {
     super(args)
     this.state = {
       phoneNumbers: [],
-      sortOrder: 'desc',
+      sortOrder: 'asc',
       sortArrowActive: true 
     }
   }
@@ -27,7 +27,9 @@ class App extends Component {
 
  generateNumbers = ()=>{
    randomPhoneNumbers(phoneNumbers=>{
-    this.setState({phoneNumbers})
+      this.setState({
+        phoneNumbers: _.sortBy(phoneNumbers) ,
+    })
    })
  }
 
@@ -42,7 +44,7 @@ class App extends Component {
 
   render() {
     const { phoneNumbers, sortOrder, sortArrowActive } = this.state
-    const data = phoneNumbers.map(phoneNumber =>({number:`07$${phoneNumber}`}))
+    const data = phoneNumbers.map(phoneNumber =>({number:`07${phoneNumber}`}))
     const max = `07${_.max(phoneNumbers)}`
     const min =  `07${_.min(phoneNumbers)}`
 

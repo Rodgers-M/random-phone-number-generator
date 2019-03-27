@@ -8,9 +8,7 @@ const randomPhoneNumbers = (done)=>{
     return done(numbers)
 }
 
-const randomPhoneInitial = (min, max)=> Math.floor(Math.random() * (max - min)) + min;
 
 module.exports = {
   randomPhoneNumbers,
-  randomPhoneInitial,
 }
