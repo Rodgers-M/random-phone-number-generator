@@ -34,7 +34,7 @@ class App extends Component {
  sortNumbers = ()  => {
   const {phoneNumbers, sortOrder} = this.state;
     this.setState({
-      phoneNumbers:sortOrder === 'ascending' ? phoneNumbers.reverse() : _.sortBy(phoneNumbers) ,
+      phoneNumbers:sortOrder === 'asc' ? phoneNumbers.reverse() : _.sortBy(phoneNumbers) ,
       sortOrder: sortOrder === 'asc' ? 'desc' : 'asc',
     })
   }

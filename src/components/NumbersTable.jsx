@@ -7,7 +7,6 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Tooltip from '@material-ui/core/Tooltip';
 import Paper from '@material-ui/core/Paper';
-import { randomPhoneInitial }  from '../helpers/randomNumbersGenerator'
 import "./numbers-table.css"
 
 const NumbersTable = (props) => {
